@@ -79,11 +79,11 @@
                 </tr>
             </thead>
              <tbody>
-                <tr v-for="(exericio) in listaExercicio" v-bind:key="exericio.id" class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "> 
+                <tr v-for="(exericio,index) in listaExercicio" v-bind:key="index" class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "> 
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {{ exericio.id }} </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {{ exericio.nome }} </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {{ exericio.type }} </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> <Button text="Add" @click="add(exericio.id)" /> </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> <Button text="Add" @click="add(index)" /> </td>
                 </tr>
             </tbody>
         </table>
@@ -439,7 +439,7 @@ export default {
 
 
     const add = (item) =>{
-      listaTreino.value.push(listaExercicio.value[item-1])
+      listaTreino.value.push(listaExercicio.value[item])
     }
 
     const criar = async ()=>{
